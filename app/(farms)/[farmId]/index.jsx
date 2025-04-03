@@ -17,28 +17,28 @@ const SingleFarm = () => {
         <Image source={require('../../../assets/images/favicon.png')} style={{width:50, height:50}} resizeMode='contain'/>
       </View>
         <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={{gap:20}}>
-            <View style={{backgroundColor:colors.primaryGreen, padding:16, borderRadius:20}}>
-                <Typography size={30} color='white' style={{fontFamily:'Rubik-Medium', textAlign:'center'}}>Green Valley Farm</Typography>
+            <View style={{backgroundColor:colors.primaryLightGreen, padding:16, borderRadius:20}}>
+                <Typography size={30} color='black' style={{fontFamily:'Rubik-Medium', textAlign:'center'}}>Green Valley Farm</Typography>
                 <View style={{flexDirection:'row', gap:5, alignItems:'center',justifyContent:'center'}}>
-                    <MapPin color={colors.neutral200} size={20} />
-                    <Typography color={colors.neutral200} size={18} style={{fontFamily:'Rubik-Regular'}}>Delmonte, Thika</Typography>
+                    <MapPin color={colors.neutral900} size={20} />
+                    <Typography color={colors.neutral900} size={18} style={{fontFamily:'Rubik-Regular'}}>Delmonte, Thika</Typography>
                 </View>
-                <Typography size={20} color='white' style={{fontFamily:'Rubik-Medium', textAlign:'center'}}>20 acres - 4 divisions</Typography>
-                <View style={{borderTopWidth:0.2, borderTopColor:colors.neutral200, paddingTop:10, marginTop:10 }}>
-                    <Typography color={colors.neutral200} size={20} style={{fontFamily:'Rubik-Regular'}}>Total Balance</Typography>
-                    <Typography color='white' size={28} style={{fontFamily:'Rubik-Medium'}}>Ksh 5,300.00</Typography>
+                <Typography size={20} color='black' style={{fontFamily:'Rubik-Medium', textAlign:'center'}}>20 acres - 4 divisions</Typography>
+                <View style={{borderTopWidth:0.2, borderTopColor:colors.neutral400, paddingTop:10, marginTop:10 }}>
+                    <Typography color={colors.neutral900} size={20} style={{fontFamily:'Rubik-Regular'}}>Total Balance</Typography>
+                    <Typography color='black' size={28} style={{fontFamily:'Rubik-Medium'}}>Ksh 5,300.00</Typography>
                     <View style={{flexDirection:'row', marginTop:5, alignItems:'center', justifyContent:'space-between'}}>
                         <View>
                             <View style={{flexDirection:'row',gap:2, alignItems:'center'}}>
-                                <ArrowDown color={colors.neutral200} size={18}/>
-                                <Typography color={colors.neutral200} size={20} style={{fontFamily:'Rubik-Regular'}} >Investment</Typography>
+                                <ArrowDown color={colors.neutral900} size={18}/>
+                                <Typography color={colors.neutral900} size={20} style={{fontFamily:'Rubik-Regular'}} >Investment</Typography>
                             </View>
-                            <Typography color='white' size={20} style={{fontFamily:'Rubik-Medium'}} >Ksh 12,000</Typography>
+                            <Typography color='black' size={20} style={{fontFamily:'Rubik-Medium'}} >Ksh 12,000</Typography>
                         </View>
                         <View>
                             <View style={{flexDirection:'row',gap:2, alignItems:'center'}}>
-                                <ArrowUp color='red' size={18}/>
-                                <Typography color='red' size={20} style={{fontFamily:'Rubik-Regular'}} >Expenses</Typography>
+                                <ArrowUp color={colors.rose} size={18}/>
+                                <Typography color={colors.rose} size={20} style={{fontFamily:'Rubik-Regular'}} >Expenses</Typography>
                         </View>
                         <Typography color='red' size={20} style={{fontFamily:'Rubik-Regular'}} >- Ksh 6,700</Typography>
                     </View>
@@ -54,7 +54,7 @@ const SingleFarm = () => {
                 </TouchableOpacity>
                 </View>
                 {farmDivisions.map((division, index) => (
-          <View key={index} style={{marginBottom:16, backgroundColor:colors.primaryBlue, borderWidth:0.1, borderColor:colors.neutral300, padding:10, borderRadius:10}}>
+          <View key={index} style={{marginBottom:16, backgroundColor:colors.primaryLightGreen, borderWidth:0.1, borderColor:colors.neutral300, padding:10, borderRadius:10}}>
             <Typography size={22} style={{fontFamily:'Rubik-Medium'}}>{division.divisionName}</Typography>
             <Typography size={20} style={{fontFamily:'Rubik-Medium'}}>{division.plantedCrop}</Typography>
             <View style={{flexDirection:'row', gap:5, alignItems:'center', marginLeft:3}}>
