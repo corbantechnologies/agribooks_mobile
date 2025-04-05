@@ -1,4 +1,4 @@
-import { View, Text, TouchableOpacity, Image, ScrollView } from 'react-native'
+import { View, Text, TouchableOpacity, Image, ScrollView, Alert } from 'react-native'
 import React, { useState } from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import { colors } from '../../constants/theme'
@@ -16,17 +16,7 @@ const Login = () => {
       const router = useRouter()
       const [isSubmitting, setIsSubmitting] = useState(false);
       const submit = async () =>{
-        if(!form.password || !form.email){
-          Alert.alert("Error", "Please fill in all the fields")
-        }
-        setIsSubmitting(true);
-        try {
-          router.replace('/home')
-        } catch (error) {
-          Alert.alert("Error",error)
-        }finally{
-          setIsSubmitting(false);
-        }
+          router.replace('/(tabs)')
       }
   return (
     <SafeAreaView style={{flex:1,padding:20, backgroundColor:colors.primaryBlue}}>
