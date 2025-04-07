@@ -4,8 +4,10 @@ import { colors } from '../../constants/theme'
 import Typography from '../../components/Typography'
 import Feather from '@expo/vector-icons/Feather';
 import database from '@/db';
-import { useEffect, useState } from 'react';
-const Statistics = () => {
+import { withObservables } from '@nozbe/watermelondb/react'
+
+const Statistics = ({myfarms}) => {
+
   const createFarm = async()=> {
     await database.write(async () => {
       await database.get('farms').create(farm => {
@@ -15,24 +17,13 @@ const Statistics = () => {
       });
     })
   }
-  const getFarms = async () => {
-    const farms = await database.get('farms').query().fetch();
-    console.log(farms)
-  }
-  const [farms, setFarms] = useState([])
-  useEffect(()=>{
-    const fetchFarms = async () => {
-      const farms = await database.get('farms').query().fetch();
-      setFarms(farms)
-    }
-    fetchFarms();
-  },[])
+
   return (
     <SafeAreaView style={{flex:1}}>
       <Typography>Statistics</Typography>
       <Button title='Create farm' onPress={createFarm}  />
       <FlatList
-      data={farms}
+      data={myfarms}
       contentContainerStyle={{gap:5}}
       keyExtractor={item => item.id}
       renderItem={({item})=>
@@ -47,4 +38,9 @@ const Statistics = () => {
   )
 }
 
-export default Statistics
+
+const enhance = withObservables([], () => ({
+  myfarms: database.get('farms').query()
+}))
+export default enhance(Statistics);
+

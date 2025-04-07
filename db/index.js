@@ -32,4 +32,3 @@ const database = new Database({
 
 export default database
 
-export const divisionCollections = database.get('divisions')
