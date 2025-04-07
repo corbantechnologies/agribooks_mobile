@@ -26,8 +26,10 @@ const adapter = new SQLiteAdapter({
 const database = new Database({
   adapter,
   modelClasses: [
-    Farm,
+    Farm
   ],
 })
 
 export default database
+
+export const divisionCollections = database.get('divisions')

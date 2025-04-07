@@ -11,5 +11,14 @@ export default appSchema({
           { name: 'location', type: 'string' },
         ]
       }),
+    // tableSchema({
+    //     name: 'divisions',
+    //     columns: [
+    //       { name: 'name', type: 'string' },
+    //       { name: 'product', type: 'string' },
+    //       { name: 'investment', type: 'number' },
+    //       { name: 'activity', type: 'string', isOptional:true },
+    //     ]
+    //   }),
   ]
 })

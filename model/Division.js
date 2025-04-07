@@ -1,10 +1,11 @@
 import { Model } from '@nozbe/watermelondb'
 import { field, text } from '@nozbe/watermelondb/decorators'
 
-export default class Farm extends Model {
-  static table = 'farms'
+export default class Division extends Model {
+  static table = 'divisions'
 
   @text('name') name
+  @text('product') product
   @field('investment') investment
-  @text('location') location
+  @text('activity') activity
 }
