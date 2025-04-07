@@ -1,8 +1,7 @@
 import { View, Image, TouchableOpacity, ScrollView } from 'react-native'
 import React from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context'
-
-import { ArrowDown, ArrowUp, ArrowUpRight, MapPin, PlusCircle } from 'phosphor-react-native'
+import Feather from '@expo/vector-icons/Feather';
 import Typography from '../../../components/Typography'
 import BackButton from '../../../components/BackButton'
 import { colors } from '../../../constants/theme'
@@ -20,7 +19,7 @@ const SingleFarm = () => {
             <View style={{backgroundColor:colors.primaryLightGreen, padding:16, borderRadius:20}}>
                 <Typography size={30} color='black' style={{fontFamily:'Rubik-Medium', textAlign:'center'}}>Green Valley Farm</Typography>
                 <View style={{flexDirection:'row', gap:5, alignItems:'center',justifyContent:'center'}}>
-                    <MapPin color={colors.neutral900} size={20} />
+                <Feather name="map-pin" size={17} color={colors.neutral900} />
                     <Typography color={colors.neutral900} size={18} style={{fontFamily:'Rubik-Regular'}}>Delmonte, Thika</Typography>
                 </View>
                 <Typography size={20} color='black' style={{fontFamily:'Rubik-Medium', textAlign:'center'}}>20 acres - 4 divisions</Typography>
@@ -30,14 +29,14 @@ const SingleFarm = () => {
                     <View style={{flexDirection:'row', marginTop:5, alignItems:'center', justifyContent:'space-between'}}>
                         <View>
                             <View style={{flexDirection:'row',gap:2, alignItems:'center'}}>
-                                <ArrowDown color={colors.neutral900} size={18}/>
+                            <Feather name="arrow-down" size={17} color={colors.neutral900} />
                                 <Typography color={colors.neutral900} size={20} style={{fontFamily:'Rubik-Regular'}} >Investment</Typography>
                             </View>
                             <Typography color='black' size={20} style={{fontFamily:'Rubik-Medium'}} >Ksh 12,000</Typography>
                         </View>
                         <View>
                             <View style={{flexDirection:'row',gap:2, alignItems:'center'}}>
-                                <ArrowUp color={colors.rose} size={18}/>
+                            <Feather name="arrow-up" size={17} color={colors.neutral900} />
                                 <Typography color={colors.rose} size={20} style={{fontFamily:'Rubik-Regular'}} >Expenses</Typography>
                         </View>
                         <Typography color='red' size={20} style={{fontFamily:'Rubik-Regular'}} >- Ksh 6,700</Typography>
@@ -49,7 +48,7 @@ const SingleFarm = () => {
                 <View style={{flexDirection:'row', justifyContent:'space-between', marginBottom:16}}>
                 <Typography size={24} style={{fontFamily:'Rubik-Medium', textAlign:'center'}}>Farm divisions</Typography>
                 <TouchableOpacity activeOpacity={0.5} style={{flexDirection:'row', alignItems:'center', gap:2}}>
-                <PlusCircle size={22} color={colors.primaryGreen}/>
+                <Feather name="plus-circle" size={17} color={colors.primaryGreen} />
                 <Typography size={16} color={colors.primaryGreen} style={{fontFamily:'Rubik-Regular', textAlign:'center'}}>Add division</Typography>
                 </TouchableOpacity>
                 </View>
@@ -63,7 +62,7 @@ const SingleFarm = () => {
             </View>
             <TouchableOpacity style={{flexDirection:'row', alignItems:'center', gap:5, marginTop:8}} onPress={()=>router.push(`/(farms)/1/${division.divisionName}`)}>
               <Typography size={16} style={{fontFamily:'Rubik-Regular'}}>View Details</Typography>
-              <ArrowUpRight size={20} color={colors.primaryGreen} />
+              <Feather name="arrow-up-right" size={18} color={colors.primaryGreen} />
             </TouchableOpacity>
           </View>
             ))}

@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "agribooksmobile",
-    "slug": "agribooksmobile",
+    "slug": "agribooks",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
@@ -15,7 +15,8 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.ligogo.agribooksmobile"
     },
     "web": {
       "bundler": "metro",
@@ -31,14 +32,19 @@
           "imageWidth": 200,
           "resizeMode": "contain",
           "backgroundColor": "#ffffff"
-        },
+        }
+      ],
+      [
         "expo-build-properties",
         {
           "ios": {
             "extraPods": [
               {
                 "name": "simdjson",
-                "configurations": ["Debug", "Release"],
+                "configurations": [
+                  "Debug",
+                  "Release"
+                ],
                 "path": "../node_modules/@nozbe/simdjson",
                 "modular_headers": true
               }
@@ -49,6 +55,21 @@
     ],
     "experiments": {
       "typedRoutes": true
+    },
+    "extra": {
+      "router": {
+        "origin": false
+      },
+      "eas": {
+        "projectId": "f360416d-b3c1-48f7-b1ea-5b6969ad1dce"
+      }
+    },
+    "owner": "ligogo",
+    "runtimeVersion": {
+      "policy": "appVersion"
+    },
+    "updates": {
+      "url": "https://u.expo.dev/f360416d-b3c1-48f7-b1ea-5b6969ad1dce"
     }
   }
 }

@@ -20,9 +20,11 @@ const Login = () => {
       }
   return (
     <SafeAreaView style={{flex:1,padding:20, backgroundColor:colors.primaryBlue}}>
-      <ScrollView contentContainerStyle={{height:'100%'}}>
+      <ScrollView showsVerticalScrollIndicator={false}>
+        <View style={{flexDirection:'row', alignItems:'center', justifyContent:'space-between'}}>
       <BackButton/>
-      <Image source={require('../../assets/images/iconMain.png')} style={{position:'absolute', top:-5, right:16, width:120, height:80, alignSelf:'center'}} resizeMode='contain'/>
+      <Image source={require('../../assets/images/favicon.png')} style={{ width:60, height:50, alignSelf:'center'}} resizeMode='contain'/>
+        </View>
       <View style={{flex:1, gap:20, marginTop:50}}>
       <View>
         <Typography size={42} style={{fontFamily:'Rubik-Bold', textAlign:'center'}}>Welcome Back</Typography>
