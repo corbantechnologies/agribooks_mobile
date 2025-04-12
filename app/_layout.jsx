@@ -1,3 +1,5 @@
+import { useSystem } from '@/powersync/Powersync';
+import { PowerSyncProvider } from '@/powersync/PowerSyncProvider';
 import { useFonts } from 'expo-font';
 import { Stack } from 'expo-router';
 import * as SplashScreen from 'expo-splash-screen';
@@ -8,7 +10,7 @@ import 'react-native-reanimated';
 // Prevent the splash screen from auto-hiding before asset loading is complete.
 SplashScreen.preventAutoHideAsync();
 
-export default function RootLayout() {
+const InitialLayout = () => {
   const [fontsLoaded] = useFonts({
     "Rubik-Bold":require('../assets/fonts/Rubik-Bold.ttf'),
     "Rubik-ExtraBold":require('../assets/fonts/Rubik-ExtraBold.ttf'),
@@ -17,12 +19,17 @@ export default function RootLayout() {
     "Rubik-Medium":require('../assets/fonts/Rubik-Medium.ttf'),
     "Rubik-Regular":require('../assets/fonts/Rubik-Regular.ttf'),
   })
+  const system = useSystem();
 
   useEffect(() => {
     if (fontsLoaded) {
       SplashScreen.hideAsync();
     }
   }, [fontsLoaded]);
+
+  useEffect(() => {
+    system.init();
+  }, []);
 
   if (!fontsLoaded) {
     return null;
@@ -37,3 +44,12 @@ export default function RootLayout() {
       </Stack>
   );
 }
+const RootLayout = () => {
+  return (
+    <PowerSyncProvider>
+      <InitialLayout />
+    </PowerSyncProvider>
+  );
+};
+
+export default RootLayout;
