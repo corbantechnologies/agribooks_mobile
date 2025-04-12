@@ -2,7 +2,7 @@ import { View, ScrollView, StatusBar, TouchableOpacity, Image } from 'react-nati
 import { SafeAreaView } from 'react-native-safe-area-context'
 import { colors } from '../../constants/theme'
 import Typography from '../../components/Typography'
-import { ArrowUpRight, MapPin, PlusCircle } from 'phosphor-react-native'
+import Feather from '@expo/vector-icons/Feather';
 import { useRouter } from 'expo-router'
 const Fields = () => {
   const router = useRouter()
@@ -27,14 +27,14 @@ const Fields = () => {
           <View key={index} style={{backgroundColor:'white',borderRadius:16, padding:20}}>
             <Typography size={24} style={{fontFamily:'Rubik-Medium'}}>{activity.farmName}</Typography>
             <View style={{flexDirection:'row', gap:5, alignItems:'center'}}>
-              <MapPin color={colors.primaryGreen} size={20} />
-              <Typography color={colors.primaryGreen} size={16} style={{fontFamily:'Rubik-Regular'}}>{activity.farmLocation}</Typography>
+              <Feather name="map-pin" size={17} color={colors.primaryGreen} />
+              <Typography color={colors.primaryGreen} size={19} style={{fontFamily:'Rubik-Regular'}}>{activity.farmLocation}</Typography>
             </View>
             <View style={{flexDirection:'row', justifyContent:'space-between', alignItems:'center', gap:5, marginTop:5}}>
             <Typography size={20} style={{fontFamily:'Rubik-Regular',marginLeft:5}}>4 divisions</Typography>
             <TouchableOpacity style={{flexDirection:'row', borderWidth:1, borderColor:colors.primaryGreen, borderRadius:5, padding:8, alignItems:'center', gap:5, marginTop:5}} onPress={()=>router.push(`/(farms)/${activity.farmName}`)}>
               <Typography size={16} style={{fontFamily:'Rubik-Regular'}}>View Details</Typography>
-              <ArrowUpRight size={20} color={colors.primaryGreen} />
+              <Feather name="arrow-up-right" size={18} color={colors.primaryGreen} />
             </TouchableOpacity>
             </View>
           </View>
@@ -42,7 +42,7 @@ const Fields = () => {
           </View>
         </ScrollView>
         <TouchableOpacity style={{flexDirection:'row', position:'absolute', bottom:20,right:20, zIndex:50, alignItems:'center', gap:10, backgroundColor:colors.primaryGreen, padding:10, borderRadius:10}}>
-                <PlusCircle color='white' size={24} />
+        <Feather name="plus-circle" size={18} color='white' />
                   <Typography color='white' size={16} style={{fontFamily:'Rubik-Medium'}}>Add Farm</Typography>
                 </TouchableOpacity>
     </SafeAreaView>

@@ -9,9 +9,7 @@ const Typography = ({size, color=colors.neutral900, fontWeight='400', children, 
     fontWeight,
   }
     return (
-    <View>
       <Text style={[style, textStyle]} {...textProps}>{children}</Text>
-    </View>
   )
 }
 

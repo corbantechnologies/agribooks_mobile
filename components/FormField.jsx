@@ -1,4 +1,4 @@
-import { Eye, EyeSlash } from 'phosphor-react-native';
+import Feather from '@expo/vector-icons/Feather';
 import { useState } from 'react';
 import { View, Text, StyleSheet, TextInput, TouchableOpacity, Image } from 'react-native'
 import Typography from './Typography';
@@ -24,7 +24,7 @@ const FormField = ({title, value, placeholder, handleChangeText}) => {
         />
         {title === 'Password' && 
        ( <TouchableOpacity onPress={()=>setShowPassword(!showPassword)} style={{position:'absolute', right:16}}>
-            {!showPassword ? <Eye size={24} color='black'/> : <EyeSlash size={24} color='black'/>}
+            {!showPassword ? <Feather name="eye" size={24} /> : <Feather name="eye-off" size={24} />}
         </TouchableOpacity>)
         }
       </View>

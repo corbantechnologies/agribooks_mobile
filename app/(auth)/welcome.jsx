@@ -1,4 +1,4 @@
-import { View, Text, TouchableOpacity, Image, ImageBackground, StatusBar } from 'react-native'
+import { View, ImageBackground, StatusBar } from 'react-native'
 import React from 'react'
 import ScreenWrapper from '../../components/ScreenWrapper'
 import Typography from '../../components/Typography'

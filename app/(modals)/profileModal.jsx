@@ -1,11 +1,11 @@
 import { View, Text, Alert } from 'react-native'
 import { SafeAreaView } from 'react-native-safe-area-context'
-import BackButton from '@/components/BackButton'
-import Typography from '@/components/Typography'
-import { useEffect, useState } from 'react'
-import Button from '@/components/Button'
+import { useState } from 'react'
 import FormField from '../../components/FormField'
+import BackButton from '../../components/BackButton'
+import Typography from '../../components/Typography'
 import { colors } from '../../constants/theme'
+import Button from '../../components/Button'
 
 const profileModal = () => {
     const [form, setForm] = useState({
@@ -19,7 +19,7 @@ const profileModal = () => {
   return (
     <SafeAreaView style={{flex:1, paddingHorizontal:20}}>
       <View style={{flexDirection:'row', justifyContent:'space-between', alignItems:'center', paddingTop:20}}>
-        <BackButton/>
+        <BackButton />
         <Typography size={32} style={{fontFamily:'Rubik-Medium'}}>Update Profile</Typography>
         <Text style={{color:'transparent'}}>Update</Text>
       </View>
