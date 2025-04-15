@@ -4,6 +4,7 @@ import { createContext, useContext } from 'react';
 import { AppSchema } from './AppSchema';
 import { wrapPowerSyncWithKysely } from '@powersync/kysely-driver';
 import { SupabaseConnector } from './SupabaseConnector';
+import { PowerSyncDatabase } from '@powersync/react-native';
 
 export class System {
 

@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "agribooksmobile",
+    "name": "AgriBooks",
     "slug": "agribooks",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -33,24 +33,6 @@
           "resizeMode": "contain",
           "backgroundColor": "#ffffff"
         }
-      ],
-      [
-        "expo-build-properties",
-        {
-          "ios": {
-            "extraPods": [
-              {
-                "name": "simdjson",
-                "configurations": [
-                  "Debug",
-                  "Release"
-                ],
-                "path": "../node_modules/@nozbe/simdjson",
-                "modular_headers": true
-              }
-            ]
-          }
-        }
       ]
     ],
     "experiments": {
@@ -61,15 +43,12 @@
         "origin": false
       },
       "eas": {
-        "projectId": "f360416d-b3c1-48f7-b1ea-5b6969ad1dce"
+        "projectId": "10e2fca4-9d25-49f4-8b19-a2fc5d137ebe"
       }
     },
     "owner": "ligogo",
     "runtimeVersion": {
       "policy": "appVersion"
-    },
-    "updates": {
-      "url": "https://u.expo.dev/f360416d-b3c1-48f7-b1ea-5b6969ad1dce"
     }
   }
 }

@@ -6,24 +6,15 @@ import Typography from '../../../components/Typography'
 import BackButton from '../../../components/BackButton'
 import { colors } from '../../../constants/theme'
 import { useRouter } from 'expo-router'
-import database, { divisionCollections } from '@/db';
 const SingleFarm = () => {
     const router = useRouter()
     const createDivision = async()=> {
       console.log('clicked')
-      // await database.write(async () => {
-      //   await database.get('divisions').create(division => {
-      //     division.name = 'Beans division';
-      //     division.investment = 60000;
-      //     division.product = 'Yellow Beans';
-      //     division.activity = 'Planted'
-      //   });
-      // })
+      
     }
     const getDivisions = async () => {
       console.log('btn clicked')
-      // const divisions = await database.get('divisions').query().fetch();
-      console.log(divisions)
+      router.push('/(tabs)')
     }
   return (
     <SafeAreaView style={{flex:1, paddingHorizontal:16, backgroundColor:colors.primaryBlue}}>

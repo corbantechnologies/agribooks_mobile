@@ -2,7 +2,7 @@ import { Image, View } from 'react-native'
 import { useEffect } from 'react'
 import { useRouter } from 'expo-router'
 import { useSystem } from '@/powersync/Powersync'
-const App = () => {
+const Index = () => {
 
   const router = useRouter()
   const { supabaseConnector } = useSystem();
@@ -28,4 +28,4 @@ const App = () => {
   )
 }
 
-export default App;
+export default Index;
