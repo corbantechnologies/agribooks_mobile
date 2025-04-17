@@ -18,7 +18,7 @@ const Index = () => {
         }
       })
       .catch(() => {
-        router.replace('/register');
+        router.replace('/login');
       });
   }, []);
   return (

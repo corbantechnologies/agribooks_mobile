@@ -4,6 +4,7 @@ import { colors } from '../../constants/theme'
 import { router } from 'expo-router'
 import FontAwesome from '@expo/vector-icons/FontAwesome';
 import Feather from '@expo/vector-icons/Feather'
+import { useSystem } from '@/powersync/Powersync';
 
 const settings = [
   {
@@ -41,13 +42,12 @@ const SettingsItem = ({icon, title, onPress, showArrow=true}) => (
 )
 
 const Profile = () => {
+  const {supabaseConnector, powersync} = useSystem();
   const handleLogout = async()=>{
-      Alert.alert("Confirm", "Are you sure you want to logout?", [
-        {text:'Cancel', style:'cancel'},
-        {text:'Logout', style:'destructive', onPress:()=>{
-          router.replace('(auth)/login')
-        }}
-      ])
+    console.log('clicked')
+      await powersync.disconnectAndClear();
+      await supabaseConnector.client.auth.signOut();
+      router.replace('/login')
   }
   return (
     <SafeAreaView style={{flex:1, backgroundColor:colors.primaryBlue}}>

@@ -7,16 +7,29 @@ import Typography from '../../components/Typography'
 import FormField from '../../components/FormField'
 import Button from '../../components/Button'
 import { useRouter } from 'expo-router'
+import { useSystem } from '@/powersync/Powersync'
 
 const Login = () => {
     const [form, setForm] = useState({
         email: '',
         password: ''
       })
+      const { supabaseConnector } = useSystem();
+      const [loading, setLoading] = useState(false);
+      const [error, setError] = useState('');
       const router = useRouter()
-      const [isSubmitting, setIsSubmitting] = useState(false);
       const submit = async () =>{
-          router.replace('/(tabs)')
+        setLoading(true);
+        setError('');
+        try {
+          await supabaseConnector.login(form.email, form.password);
+          router.replace('/(tabs)');
+        } catch (ex) {
+          console.error(ex);
+          setError(ex.message || 'Could not authenticate');
+        } finally {
+          setLoading(false);
+        }
       }
   return (
     <SafeAreaView style={{flex:1,padding:20, backgroundColor:colors.primaryBlue}}>
@@ -34,18 +47,19 @@ const Login = () => {
       <FormField
           title="Email"
           value={form.email}
-          handleChangeText={(e)=>setForm({...form, email:e})}
+          handleChangeText={(value)=>setForm({...form, email:value})}
           keyboardType="email-address"
           placeholder='Your email'
           />
           <FormField
           title="Password"
           value={form.password}
-          handleChangeText={(e)=>setForm({...form, password:e})}
+          handleChangeText={(value)=>setForm({...form, password:value})}
           placeholder='******'
           />
           <Typography size={16} color='#505050' style={{fontFamily:'Rubik-Regular', textAlign:'right'}}>Forgot Password?</Typography>
-          <Button onPress={submit} style={{backgroundColor:colors.primaryGreen, marginVertical:16}}>Login</Button>
+          {error ? <Text style={{ color: 'red' }}>{error}</Text> : null}
+          <Button onPress={submit} loading={loading} style={{backgroundColor:colors.primaryGreen, marginVertical:16}}>Login</Button>
           <Typography size={16} color='#505050' style={{fontFamily:'Rubik-Regular', textAlign:'center'}}>Or sign in with</Typography>
           <TouchableOpacity activeOpacity={0.5} style={{width:'auto', borderWidth:0.5, marginBottom:16, borderColor:'#bcbcbc', borderRadius:50, marginTop:8, paddingBlock:10 }}>
             <View style={{display:'flex', flexDirection:'row', gap:8, justifyContent:'center', alignItems:'center'}}>

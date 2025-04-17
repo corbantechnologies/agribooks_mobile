@@ -21,8 +21,12 @@ export class System {
 
   async init() {
     console.log('Initializing system');
-    await this.powersync.init();
-    await this.powersync.connect(this.supabaseConnector);
+    try {
+      await this.powersync.init();
+      await this.powersync.connect(this.supabaseConnector);
+    } catch (error) {
+      console.error('Error initializing system:', error);
+    }
   }
 }
 

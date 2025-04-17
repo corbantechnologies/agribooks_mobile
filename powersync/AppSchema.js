@@ -1,5 +1,8 @@
 import { column, Schema, Table } from '@powersync/react-native';
 
+export const LIST_TABLE = 'lists';
+export const TODO_TABLE = 'todos';
+
 const lists = new Table({
   created_at: column.text,
   name: column.text,
@@ -20,7 +23,7 @@ const todos = new Table(
 );
 
 export const AppSchema = new Schema({
-  todos,
-  lists
+  lists,
+  todos
 });
 

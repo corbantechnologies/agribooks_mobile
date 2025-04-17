@@ -27,6 +27,7 @@ import {
       this.client = createClient(supabaseUrl, supabaseAnonKey, {
         auth: {
           storage: AsyncStorage,
+          persistSession: true,
         },
       });
     }
@@ -55,7 +56,7 @@ import {
       console.debug('session expires at', session.expires_at);
   
       return {
-        cliennt: this.client,
+        client: this.client,
         endpoint: powersyncUrl,
         token: session.access_token ?? '',
         expiresAt: session.expires_at ? new Date(session.expires_at * 1000) : undefined,
@@ -93,12 +94,14 @@ import {
           }
   
           if (result.error) {
+            console.log('could not send to supabase')
             throw new Error(`Could not ${op.op} data to Supabase error: ${JSON.stringify(result)}`);
           }
         }
-  
         await transaction.complete();
+        console.log('sent to supabase')
       } catch (ex) {
+        console.log('error sending data to supabase')
         console.debug(ex);
         if (typeof ex.code == 'string' && FATAL_RESPONSE_CODES.some((regex) => regex.test(ex.code))) {
           /**
@@ -114,6 +117,7 @@ import {
         } else {
           // Error may be retryable - e.g. network error or temporary server error.
           // Throwing an error here causes this call to be retried after a delay.
+          console.log("error that wasn't caught")
           throw ex;
         }
       }

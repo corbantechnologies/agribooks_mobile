@@ -3,7 +3,28 @@ import { SafeAreaView } from 'react-native-safe-area-context'
 import { colors } from '../../constants/theme'
 import Typography from '../../components/Typography'
 import Feather from '@expo/vector-icons/Feather';
+import { useEffect } from 'react';
+import { useRouter } from 'expo-router';
+import { useSystem } from '@/powersync/Powersync';
 const Home = () => {
+  
+    const router = useRouter()
+    const { supabaseConnector } = useSystem();
+
+  useEffect(() => {
+      supabaseConnector.client.auth
+        .getSession()
+        .then(({ data }) => {
+          if (!data.session) {
+            throw new Error('Signin required');
+          }else{
+            console.log(data)
+          }
+        })
+        .catch(() => {
+          router.replace('/login');
+        });
+    }, []);
   return (
     <SafeAreaView style={{flex:1, backgroundColor:colors.primaryBlue}}>
         <StatusBar translucent backgroundColor={colors.primaryGreen} />

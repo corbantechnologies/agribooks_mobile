@@ -1,4 +1,4 @@
-import { View, Image, TouchableOpacity, ScrollView, Button } from 'react-native'
+import { View, Image, TouchableOpacity, ScrollView } from 'react-native'
 import React from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import Feather from '@expo/vector-icons/Feather';
@@ -8,14 +8,10 @@ import { colors } from '../../../constants/theme'
 import { useRouter } from 'expo-router'
 const SingleFarm = () => {
     const router = useRouter()
-    const createDivision = async()=> {
-      console.log('clicked')
+    const createDivision=()=>{
       
     }
-    const getDivisions = async () => {
-      console.log('btn clicked')
-      router.push('/(tabs)')
-    }
+    
   return (
     <SafeAreaView style={{flex:1, paddingHorizontal:16, backgroundColor:colors.primaryBlue}}>
       <View style={{flexDirection:'row', justifyContent:'space-between', alignItems:'center',paddingTop:10, marginBottom:20}}>
@@ -23,7 +19,6 @@ const SingleFarm = () => {
           <Typography size={28} style={{fontFamily:'Rubik-SemiBold', textAlign:'center'}}>My Farm</Typography>
         <Image source={require('../../../assets/images/favicon.png')} style={{width:50, height:50}} resizeMode='contain'/>
       </View>
-      <Button title='Get divisions' onPress={getDivisions}  />
         <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={{gap:20}}>
             <View style={{backgroundColor:colors.primaryLightGreen, padding:16, borderRadius:20}}>
                 <Typography size={30} color='black' style={{fontFamily:'Rubik-Medium', textAlign:'center'}}>Green Valley Farm</Typography>
